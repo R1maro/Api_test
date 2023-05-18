@@ -8,14 +8,20 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
 //        return [
 //            'title' => 'test'
 //        ];
 
 //        return response()->json('test');
 
-        return response()->json(Post::all(),404);
+        return response()->json([
+                'status' => 'success',
+                'message' => '',
+                'data' => Post::all(),
+            ]
+        );
     }
 }
 
