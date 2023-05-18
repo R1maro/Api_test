@@ -15,7 +15,7 @@ class PostController extends Controller
 
 //        return response()->json('test');
 
-        return response()->json(Post::all());
+        return response()->json(Post::all(),404);
     }
 }
 
