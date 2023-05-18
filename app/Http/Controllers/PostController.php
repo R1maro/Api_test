@@ -16,13 +16,29 @@ class PostController extends Controller
 
 //        return response()->json('test');
 
+        return $this->successResponse(Post::all(),200);
+
+//        return $this->errorResponse('Error',500);
+    }
+
+    protected function successResponse($data,$code,$message=null){
         return response()->json([
                 'status' => 'success',
                 'message' => '',
-                'data' => Post::all(),
+                'data' => $data,
             ]
-        );
+            ,$code);
     }
-}
+    protected function errorResponse($message=null,$code){
+        return response()->json([
+                'status' => 'error',
+                'message' => $message,
+                'data' => '',
+            ]
+            ,$code);
+    }
+
+
+};
 
 
